@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_header %}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="jumbotron">
+
+  <div class="col-6 hero-col">
+    <h1 class="display-4">Unleash Your Creativity</h1>
+  </div>
+
+  <div class="col-6 hero-col">
+    <p class="lead">
+      <a class="btn btn-lg" id="hero-btn" href="{% url 'products' %}" role="button">Find Your Instrument</a>
+    </p>
+  </div>
+
+  <div class="hero-col-mob">
+    <h1 class="display-4">Unleash Your Creativity</h1>
+  </div>
+
+  <div class="hero-col-mob2">
+    <p class="lead">
+      <a class="btn btn-lg" id="hero-btn-mob" href="{% url 'products' %}" role="button">Find Your Instrument</a>
+    </p>
+  </div>
+
+</div>
+<div id="banner-text">
+  <h4 class="banner-txt">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading"></div>
+        <div class="panel-body"><a href="{% url 'products' %}"><img src="/media/all_products_image.png"
+              class="img-responsive" style="width:100%;" alt="Image"></a></div>
+        <div class="panel-footer text-center"><a href="{% url 'products' %}" id="panel-footer-text">
+            <h1 id="panel-footer" style="color: #711F31;">All Products</h1>
+          </a></div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-danger">
+        <div class="panel-heading text-center"></div>
+        <div class="panel-body"><a
+            href="{% url 'products' %}?category=Acoustic Guitars,Classical Guitar,Electric Guitars"
+            id="panel-footer-text"><img src="/media/guitar_product_image.png" class="img-responsive" style="width:100%;"
+              alt="Image"></a></div>
+        <div class="panel-footer text-center"><a
+            href="{% url 'products' %}?category=Acoustic Guitars,Classical Guitar,Electric Guitars"
+            id="panel-footer-text">
+            <h1 id="panel-footer" style="color: #711F31;">Guitars</h1>
+          </a></div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-success">
+        <div class="panel-heading text-center"></div>
+        <div class="panel-body"><a href="{% url 'products' %}?category=Piano,Keyboard,Digital"
+            id="panel-footer-text"><img src="/media/keys_product image.png" class="img-responsive" style="width:100%"
+              alt="Image"></a></div>
+        <div class="panel-footer text-center"><a href="{% url 'products' %}?category=Piano,Keyboard,Digital"
+            id="panel-footer-text">
+            <h1 id="panel-footer" style="color: #711F31;">Keys</h1>
+          </a></div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-success">
+        <div class="panel-heading text-center"></div>
+        <div class="panel-body"><a href="{% url 'products' %}?category=Home Recording,Microphones,Software"><img
+              src="/media/audio_product_image.png" class="img-responsive" style="width:100%" alt="Image"></a></div>
+        <div class="panel-footer text-center"><a
+            href="{% url 'products' %}?category=Home Recording,Microphones,Software" id="panel-footer-text">
+            <h1 id="panel-footer" style="color: #711F31;">Studio</h1>
+          </a></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div><br>
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+<footer class="text-center text-white">
+  <form class="home-newsletter" method="post" action="/newsletter/">
+    {% csrf_token %}
+    <div>
+      <h2 style="color: white;">Subscribe to Our Newsletter</h2>
+      <p style="color: #E0AF3A;">Receive the latest product news, special offers and deals.</p>
+    </div>
+    <div>
+      <input name="email" id="email" type="email" placeholder="Enter your email" />
+
+      <input class="submit" type="submit" value='Sign Up'></input>
+    </div>
+    </div>
+
+  </form>
+
+
+
+  </div>
+  </body>
+
+  </html>
+
+  {% endblock %}

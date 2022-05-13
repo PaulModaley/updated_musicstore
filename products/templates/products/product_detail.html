@@ -1,0 +1,379 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}
+Product Details
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="container-fluid">
+    <div class="row mt-4">
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-5 offset-md-0 col-lg-2 offset-lg-2">
+            <div class="mt-5 mb-3 ml-md-5 ml-lg-0">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top">
+                {% else %}
+                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="card-img-top">
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-6 mb-5 ml-md-0 ml-lg-5">
+            <div class="row">
+                <div class="col-11 col-sm-10 col-lg-7 mt-5 pr-0">
+                    <h1 class="font-weight-bold">{{ product.name }}</h1>
+                </div>
+                <div class="col-1 col-sm-2 col-lg-4 pl-0 mt-5">
+                    <p class="text-right">
+                        {% if wishlist %}
+                        <span class="d-none d-lg-inline-block red">Remove from Wishlist: </span>
+                        <a href="{% url 'remove_from_wishlist' product.id %}">
+                            <i class="fas fa-heart" style="color:#711F31;"></i>
+                        </a>
+                        {% else %}
+                        <span class="d-none d-lg-inline-block">Add to Wishlist: </span>
+                        <a class="wishlist_btn hvr-grow"
+                            href="{% if user.is_authenticated %}{% url 'add_to_wishlist' product.id %}{% else %}{% url 'account_login' %}{% endif %}">
+                            <i class="fas fa-heart" style="color:#711F31;"></i>
+                        </a>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="row pr-0">
+                <div class="col-12 col-sm-8 col-md-9 col-lg-8">
+                    {% if avg_rating == 5 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            ({{ reviews.count }} reviews) | <a class="red add-review"
+                                href="{% if user.is_authenticated %}#add-review{% else %}{% url 'account_login' %}{% endif %}">Add
+                                Your Review</a>
+
+                        </small>
+                    </p>
+                    {% elif avg_rating == 4.5 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            ({{ reviews.count }} reviews) | <a class="red add-review"
+                                href="{% if user.is_authenticated %}#add-review{% else %}{% url 'account_login' %}{% endif %}">Add
+                                Your Review</a>
+                        </small>
+                    </p>
+                    {% elif avg_rating == 4 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            ({{ reviews.count }} reviews) | <a class="red add-review"
+                                href="{% if user.is_authenticated %}#add-review{% else %}{% url 'account_login' %}{% endif %}">Add
+                                Your Review</a>
+                        </small>
+                    </p>
+                    {% elif avg_rating == 3.5 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                            ({{ reviews.count }} reviews) | <a class="red add-review"
+                                href="{% if user.is_authenticated %}#add-review{% else %}{% url 'account_login' %}{% endif %}">Add
+                                Your Review</a>
+                        </small>
+                    </p>
+                    {% elif avg_rating == 3 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            ({{ reviews.count }} reviews) | <a class="red add-review"
+                                href="{% if user.is_authenticated %}#add-review{% else %}{% url 'account_login' %}{% endif %}">Add
+                                Your Review</a>
+                        </small>
+                    </p>
+                    {% elif avg_rating == 2.5 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            ({{ reviews.count }} reviews) | <a class="red add-review"
+                                href="{% if user.is_authenticated %}#add-review{% else %}{% url 'account_login' %}{% endif %}">Add
+                                Your Review</a>
+                        </small>
+                    </p>
+                    {% elif avg_rating == 2 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            ({{ reviews.count }} reviews) | <a class="red add-review"
+                                href="{% if user.is_authenticated %}#add-review{% else %}{% url 'account_login' %}{% endif %}">Add
+                                Your Review</a>
+                        </small>
+                    </p>
+                    {% elif avg_rating == 1.5 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            ({{ reviews.count }} reviews) | <a class="red add-review"
+                                href="{% if user.is_authenticated %}#add-review{% else %}{% url 'account_login' %}{% endif %}">Add
+                                Your Review</a>
+                        </small>
+                    </p>
+                    {% elif avg_rating == 1 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            ({{ reviews.count }} reviews) | <a class="red add-review"
+                                href="{% if user.is_authenticated %}#add-review{% else %}{% url 'account_login' %}{% endif %}">Add
+                                Your Review</a>
+                        </small>
+                    </p>
+                    {% else %}
+                    <p>
+                        <small class="muted">
+                            No Reviews
+                        </small>
+                    </p>
+                    {% endif %}
+                </div>
+                <div class="col-12 pb-3 pb-sm-0 col-sm-4 col-md-3 col-lg-3 text-sm-right pl-sm-0 site-font">
+                    {% if request.user.is_superuser %}
+                    <small>
+                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                        <a href="{% url 'delete_product' product.id %}">Delete</a>
+                    </small>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-11">
+                    <p class="lead text-left font-weight-bold">£{{ product.price }}</p>
+                </div>
+            </div>
+            <div class="row pb-2">
+                {% if product.category %}
+                <div class="col-lg-3 d-none d-lg-block">
+                    <p class="my-auto ">Category:</p>
+                </div>
+                <div class="col-12 col-lg-8">
+                    <p class="my-auto back-to-category-link">
+                        <a href="{% url 'products' %}?category={{ product.category.backend_name }}"
+                            class="muted my-auto">
+                            {{ product.category.friendly_name }}
+                        </a>
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="col-lg-3 d-none d-lg-block">
+                    <p>Description:</p>
+                </div>
+                <div class="col-md-12 col-lg-8">
+                    <p class="muted">{{ product.description }}</p>
+                </div>
+            </div>
+            <div class="row"></div>
+            <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                {% csrf_token %}
+                
+                    <div class="col-12">
+                        <p class="mt-3"><strong>Quantity:</strong></p>
+                        <div class="form-group w-50">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="decrement-qty btn rounded-50 mr-1"
+                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                        <span class="icon">
+                                            <i class="fas fa-minus"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                <input class="form-control qty_input" type="number" name="quantity" value="1"
+                                    min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                <div class="input-group-append">
+                                    <button class="increment-qty btn rounded-50 ml-1"
+                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                        <span class="icon">
+                                            <i class="fas fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="col-12">
+                                        <button input type="submit" formaction="{% url 'add_to_cart' product.id %}"
+                                        class="btn px-3 two" id="cart" class="btn rounded-0 text-uppercase mt-5"
+                                        value="Add to Bag">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+            
+                            <a href="{% url 'products' %}" class="btn rounded-50 mt-5">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span>Keep Shopping</span>
+                            </a>
+                    </div>
+                    
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+            </form>
+
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </div>
+        </div>
+    </div>
+    <!-- Reviews -->
+    <!-- Credit -> Tim Nelson for helping me understand and guiding me in rendering the reviews details -->
+    <div class="row mt-0 pb-5">
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-5 offset-lg-1 ">
+            <h5 class="font-weight-bold ml-1">{{ reviews.count }} Reviews for {{ product.name }}</h5>
+            <hr class="mb-3">
+            {% for review in reviews %}
+            <div class="row mb-3">
+                <div class="col-8 pr-0 pr-md-3">
+                    <p class="mb-0 ml-1"><u>{{ review.user_profile.user }}</u></p>
+                    <p class="muted mb-1 ml-1"><small>{{ review.created_on }}</small></p>
+                    <p class="mb-0 ml-1">{{ review.review }}</p>
+                </div>
+                <div class="col-4 px-0">
+                    {% if review.rating == 5 %}
+                    <p class="">
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </small>
+                    </p>
+                    {% elif review.rating == 4 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </small>
+                    </p>
+                    {% elif review.rating == 3 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </small>
+                    </p>
+                    {% elif review.rating == 2 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </small>
+                    </p>
+                    {% elif review.rating == 1 %}
+                    <p>
+                        <small class="muted">
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </small>
+                    </p>
+                    {% endif %}
+                </div>
+                <hr class="muted mx-3 mb-2">
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Add Review -->
+        {% if user.is_authenticated %}
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-5">
+            <div class="row">
+                <div class="col">
+                    <h5 id="add-review" class="font-weight-bold ml-1">Add your review for {{ product.name }}</h5>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col muted">
+                    <p class="ml-1">Your email address will not be shared.</p>
+                </div>
+            </div>
+            <form class="green ml-1" action="{% url 'product_detail' product.id %}" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn" type="submit">Add Review</button>
+            </form>
+        </div>
+        {% else %}
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-0 col-lg-5">
+            <p class="red">You need to login to add reviews.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+<div class="btt-button border">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up mx-auto my-auto"></i>
+    </a>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
+<script>
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0);
+    });
+</script>
+{% endblock %}

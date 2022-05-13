@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}
+    Contact
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <section class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2>Contact Us</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row pb-5">
+            <div class="col-12 col-lg-6">
+                <p class="muted">If you have any questions about Legato Music or our products, please fill out the form below and a member of our team will respond as soon as possible.</p>
+                <form action="{% url 'contact' %}" class="mt-3" method="POST" id="contact-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn" style="padding: 12px; font-size: 20px;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script>
+        $('.btt-link').click(function(e) {
+            window.scrollTo(0,0);
+        });
+    </script>
+{% endblock %}

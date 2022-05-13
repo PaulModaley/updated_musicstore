@@ -1,0 +1,965 @@
+@layer base
+
+html {
+    height: 100%;
+}
+
+body {
+    color: #711F31;
+    font-family: 'Comfortaa';
+    background-color: #ffff;
+    height: 100vh;
+}
+
+/* Credit -> https://css-tricks.com/a-clever-sticky-footer-technique/ */
+body > footer {
+    position: sticky;
+    top: 100vh;
+    clear: right;
+}
+
+/* Nav bar and header styling */
+.fab {
+    font-size: x-large;
+}
+
+.navbar {
+    background-color:#711F31;
+}
+
+.navfill {
+    background-color:#711F31;
+}
+
+#guitars-link {
+    color: #ffff;
+}
+
+#all-products-link {
+    color: #ffff;
+}
+
+#keys-link {
+    color: #ffff;
+}
+
+#audio-link {
+    color: #ffff;
+}
+
+#guitars-link:hover {
+    color: #E0AF3A;
+}
+
+#all-products-link:hover {
+    color: #E0AF3A;
+}
+
+#keys-link:hover {
+    color: #E0AF3A;
+}
+
+#audio-link:hover {
+    color: #E0AF3A;
+}
+
+.list-inline-item {
+    margin-left: -15px;
+}
+
+#head-text {
+    font-size: 10px;
+}
+
+/* end nav bar styling */
+
+.form-control {
+    color: #711F31; 
+    border-color: #711F31;
+}
+
+
+.btn {
+    color: white;
+    background-color: #711F31;
+}
+
+.logo-txt {
+    font-size: x-large;
+}
+
+.jumbotron {
+    background-image: url('/media/unleash.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 70vh;
+ }
+
+
+.display-4 {
+    padding-top: 10px;
+    font-size: 80px;
+    margin-top: 30px;
+    color: white;
+}
+
+#hero-btn {
+    margin-top: 30px;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Underline animation from 30 Seconds of Code https://www.30secondsofcode.org/css/s/hover-underline-animation */
+
+.nav-link {
+    display: inline-block;
+    position: relative;
+    color: #711F31;
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #E0AF3A;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .nav-link:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+.navbar-toggler {
+    color: #E0AF3A !important;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.dropdown-item {
+    font-size: x-large;
+}
+
+/* button styling */
+
+.btn {
+    background: #711F31;
+    color: white;
+}
+
+#btn2 {
+    display: inline-block;
+    font-weight: 400;
+    color: #711F31;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    
+}
+
+#btn2:hover {
+    background-color: #711F31;
+    color: white;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    animation-duration: 1s;
+    animation-name: social;
+    animation-fill-mode: forwards;
+}
+
+#hero-btn:hover {
+    background-color: #E0AF3A;
+    border-color: #711F31;
+    color: #711F31;
+}
+
+
+
+/* inspired by W3Schools https://www.w3schools.com/css/tryit.asp?filename=trycss3_animation1 */
+
+@keyframes social {
+  from {background-color: #711F31;
+    }
+  to {background-color: #E0AF3A;}
+}
+
+.btn:hover {
+    background-color: #E0AF3A;
+}
+
+
+.text-black {
+    color: #711F31; !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+/* DELIVERY BANNER */
+
+#delivery-banner {
+    background-color: #711F31; 
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+#banner-text {
+    margin: auto;
+    width: 100%;
+    background-color: #711F31; 
+}
+
+.banner-txt {
+    text-align: center;
+    font-size: x-large;
+    color:#ffff; 
+    margin-top: -35px;
+}
+
+.text-info {
+    color: #711F31 !important;
+}
+
+.text-info:hover {
+    color: #E0AF3A !important;
+}
+
+.icons:hover {
+    color: #E0AF3A !important;
+}
+
+#user-options:hover {
+    color: #E0AF3A;
+}
+/* panels */
+
+.panel-footer {
+    background-color: #E0AF3A;
+    padding: 5px 5px 5px 5px;
+    border-radius: 9px;
+}
+
+#panel-footer {
+    font-size: 25px;
+}
+.panel-body {
+        padding: 10px;
+        transition: transform .2s; /* Animation */
+      }
+      
+      .panel-body:hover {
+        transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+      }
+
+
+#panel-footer-text {
+    text-decoration: none;
+    color: #711F31;
+}
+
+#panel-footer-text:link, a:visited,  a:hover, a:active
+{
+    text-decoration: none;
+}
+
+.panel-primary {
+    display: block;
+}
+
+/* NEWSLETTER FORM BY mtechweb AT https://bootsnipp.com/snippets/eoXRa */
+.home-newsletter {
+    padding: 40px 0;
+    background: #711F31;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2; 
+}
+
+    .home-newsletter .single h2 {
+    font-size: 22px;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 4px; }
+    .home-newsletter .single .form-control {
+    height: 50px;
+    background: #ffff;
+    border-color: transparent;
+    border-radius: 20px 0 0 20px; }
+    .home-newsletter .single .form-control:focus {
+    box-shadow: none;
+    border-color: #243c4f; }
+    .home-newsletter .single .btn {
+    min-height: 50px; 
+    border-radius: 0 20px 20px 0;
+    background: #E0AF3A;
+    color: #fff;
+    }
+    .home-newsletter label {
+    min-height: 50px; 
+    border-radius: 0 20px 20px 0;
+    color: #fff;
+    }
+    .home-newsletter #email {
+    width: 30%;
+    }
+    .submit {
+    background-color: #E0AF3A;
+    width: 10%;
+}
+
+/* FOOTER */
+#footer-main {
+    background-color: #711F31;
+    color: #ffff;
+}
+
+/* product page */
+#product-price {
+    margin-top: 12px;
+    text-align: center;
+}
+
+/* Product details page */
+
+.fa-star {
+    color:#E0AF3A;
+} 
+
+.fa-tag {
+    color:#711F31;
+}
+
+.text-muted {
+     color:#711F31;
+}
+
+.paginator {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+/* cart buttons */
+
+#cart {
+    margin: auto;
+    width: 100%;
+}
+/* cart animation from Free Front End https://codepen.io/phat-xluong/pen/ZEWNxdq */
+.one, .two, .three, .four, .five {
+    border: none;
+    border-radius: 4px;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.01);
+    overflow: hidden;
+ 
+    margin-bottom: 20px;
+    font-size: 20px;
+    position: relative;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    -webkit-transition: background-position .7s,box-shadow .4s;
+    transition: background-position .7s,box-shadow .4s;
+
+  }
+  .one:hover, .two:hover, .three:hover, .four:hover, .five:hover {
+    background-position: 0% 30%;
+    color: antiquewhite;
+  }
+  .one:hover:after, .two:hover:after, .three:hover:after, .four:hover:after, .five:hover:after {
+    right: -40px;
+    -webkit-transition: right .4s,-webkit-transform 30s .2s linear;
+    transition: right .4s,-webkit-transform 30s .2s linear;
+    transition: right .4s,transform 30s .2s linear;
+    transition: right .4s,transform 30s .2s linear,-webkit-transform 30s .2s linear;
+  }
+  .one:before, .two:before, .three:before, .four:before, .five:before, .one:after, .two:after, .three:after, .four:after, .five:after {
+    font-family: FontAwesome;
+    font-size: x-small;
+    display: block;
+    position: absolute;
+  }
+  .one:before, .two:before, .three:before, .four:before, .five:before {
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    font-size: 20px;
+    left: 8px;
+    /* top: 19px; */
+  }
+  .one:after, .two:after, .three:after, .four:after, .five:after {
+    -webkit-transition: right .4s, -webkit-transform .2s;
+    transition: right .4s, -webkit-transform .2s;
+    transition: right .4s, transform .2s;
+    transition: right .4s, transform .2s, -webkit-transform .2s;
+    font-size: 100px;
+    opacity: .3;
+    right: -120px;
+    top: -17px;
+  }
+  
+  .two {
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.16) inset, 0px 0px 10px 0px #E0AF3A;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#E0AF3A), to(rgba(255, 253, 253, 0.24))), url("http://www.eatweartravel.com/wp-content/uploads/2015/04/i-love-shopping_1920x1200_83206.jpg");
+    background-image: linear-gradient(to bottom, #711F31, rgba(222, 135, 61, 0.24)), url("http://www.eatweartravel.com/wp-content/uploads/2015/04/i-love-shopping_1920x1200_83206.jpg");
+  }
+  .two:hover {
+    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.16) inset, 0px 0px 30px 0px #E48A3C;
+  }
+  .two:hover:after {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .two:hover:before {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  .two:after, .two:before {
+    content: "";
+  }
+  .two b {
+    color: #711F31;
+    font-weight: 700;
+  }
+  
+
+  
+
+/* ------- Cart ----------------------
+CSS based on code by from Omkar Bailkeri at BBBootstrap */
+.my-6 {
+    margin-top: 100px;
+}
+
+.plus-minus {
+    position: relative;
+    font-size: x-large;
+    margin-top: -8px;
+}
+
+.plus {
+    position: absolute;
+    top: -4px;
+    left: 2px;
+    cursor: pointer
+}
+
+.minus {
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    cursor: pointer
+}
+
+.vsm-text:hover {
+    color: #FF5252
+}
+
+.book,
+.book-img {
+    width: 120px;
+    height: 180px;
+    border-radius: 5px
+}
+
+.book {
+    margin: 20px 15px 5px 15px
+}
+
+.border-top {
+    border-top: 1px solid #EEEEEE !important;
+    margin-top: 20px;
+    padding-top: 15px
+}
+
+.card {
+    margin: 40px 0px;
+    padding: 40px 50px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2)
+}
+
+input,
+textarea {
+    background-color: white;
+    padding: 8px 15px 8px 15px;
+    width: 100%;
+    border-radius: 5px !important;
+    box-sizing: border-box;
+    border: 1px solid #711F31;
+    font-size: 15px !important;
+    color: #000 !important;
+    font-weight: 300
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #9FA8DA;
+    outline-width: 0;
+    font-weight: 400
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.pay {
+    width: 80px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #711F31;
+    margin: 10px 20px 10px 0px;
+    cursor: pointer;
+    box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2)
+}
+
+.gray {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
+    color: #E0E0E0
+}
+
+.gray .pay {
+    box-shadow: none
+}
+
+#tax {
+    border-top: 1px lightgray solid;
+    margin-top: 10px;
+    padding-top: 10px
+}
+
+.btn-blue {
+    border: none;
+    border-radius: 10px;
+    background-color: #711F31;
+    color: #fff;
+    padding: 8px 15px;
+    margin: 20px 0px;
+    cursor: pointer
+}
+
+.btn-blue:hover {
+    background-color: #E0AF3A;
+    color: #fff
+}
+
+#checkout-btn {
+    border: none;
+    border-radius: 10px;
+    background-color: #711F31;
+    color: white;
+    padding: 8px 15px;
+    margin: 20px 0px;
+    cursor: pointer
+}
+
+#checkout-btn:hover {
+    background-color: #E0AF3A;
+    color: #711F31;
+    box-shadow: 0 4px 15px 0 #711F31;
+    font-weight: bold;
+    animation: pulse 0.5s;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 var(--hover); }
+  }
+
+#checkout {
+    float: left
+}
+
+#check-amt {
+    float: right
+}
+
+@media screen and (max-width: 768px) {
+
+    .book,
+    .book-img {
+        width: 100px;
+        height: 150px
+    }
+
+    .card {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    .mob-text {
+        font-size: 13px
+    }
+
+    .pad-left {
+        padding-left: 20px
+    }
+}
+
+/* Wishlist */
+.product {
+    color: #711F31;
+}
+
+tr {
+    color: #711F31;
+}
+
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 1px;
+}
+
+/* Allauth form formatting */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+    color: #711F31; /* text-secondary */
+}
+
+.allauth-form-inner-content input {
+    border-color: #711F31;
+    border-radius: 0;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #711F31;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 400;
+    color: #ffff;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #711F31;
+    border: 1px solid #711F31;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 5px;
+
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	color: #711F31;
+    background-color: #E0AF3A;
+    border-color: #E0AF3A;
+}
+
+.allauth-form-inner-content a {
+	color: #711F31; /* text-info */
+}
+
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; 
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 36px;
+}
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* MEDIA QUERIES */
+
+/* Slightly larger container on xl screens */
+
+@media (min-width: 1200px) { 
+  .container {
+    max-width: 80%;
+  }
+} 
+
+@media (min-width: 1900px) { 
+    .jumbotron {
+      max-height: 60vh;
+    }
+  } 
+  
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    } 
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+
+@media (max-width: 741px) {
+.display-4 {
+    padding-top: 20px;
+    margin-top: 60px;
+    color: white;
+    }
+}
+
+@media (max-width: 526px) {
+    .my-0 {
+        font-size: smaller;
+        }
+}
+
+/* for shopping cart page */
+@media (max-width: 526px) {
+.my-6 {
+    margin-top: 50px;
+    }
+}
+
+@media (max-width: 526px) {
+.cart {
+    font-size: medium;
+    }
+.mt-2 {
+    font-size: smaller;
+    }
+}
+/* 
+Hide search bar in mobile view */
+@media (max-width: 991px) {
+#search-bar {
+    display: none;
+    }
+}
+
+/* hero image on smaller screens */
+@media (max-width: 912px) {
+    .display-4 {
+        font-size: 25px;
+        text-align: center;
+        }
+    }
+
+@media (max-width: 912px) {
+        #hero-btn {
+            margin-top: -10px;
+            }
+        }
+
+/* Hide normal hero text col on smaller screens */
+@media (max-width: 912px) {
+    .hero-col {
+        display: none;
+        }
+    }
+
+/* hero image for smaller screens */
+@media (max-width: 912px) {
+.jumbotron {
+    background-image: url('/media/unleash_320x300.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 60vh;
+    }
+}
+
+/* Smaller hero text for mobile devices */
+@media (min-width: 912px) {
+.hero-col-mob {
+    display: none;
+    color: white;
+    }
+}
+@media (min-width: 912px) {
+    .hero-col-mob2 {
+        display: none;
+        color: white;
+    }
+}
+
+@media (min-width: 912px) {
+.display-4-mob {
+    color: white;
+    font-size: 200px;
+    margin-top: 20px;
+    }
+}
+
+@media (max-width: 764px) {
+.card-img-top {
+    margin: auto;
+    width: 100%;
+    align-content: center;
+    }
+}
+
+@media only screen and (max-width: 912px) and (min-width: 240px) {
+    .hero-col-mob2 {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        margin-top: 200px;
+    }
+}
+
+/* hero image and text size on larger screens 1920 x 1080 */
+@media (min-width: 1500px) {
+    .display-4 {
+        margin-top: 100px;
+        size: 120vh;
+        }
+}
+
+@media (min-width: 1920px) {
+    .display-4 {
+        margin-top: 80px;
+        size: 110vh;
+    }
+}
+
+@media (min-width: 1500px) {
+    #hero-btn {
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 1920px) {
+    #hero-btn {
+        margin-top: 40px;
+        padding: 20px;
+        font-size: x-large;
+    }
+}
+
+/* Make fonts bugger on larger screens */
+
+@media (min-width: 1920px) {
+    body {
+        font-size: large;
+    }
+}
+
+@media (min-width: 1920px) {
+    #head-text {
+        font-size: large;
+    }
+}
+
+@media (min-width: 1920px) {
+body {
+    color: #711F31;
+    font-family: 'Comfortaa';
+    background-color: #ffff;
+    height: 100vh;
+    font-size: large;
+    }
+}

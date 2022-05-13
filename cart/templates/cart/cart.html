@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<!-- ------ Cart ----------------------
+HTML and CSS based on code by from Omkar Bailkeri at BBBootstrap -->
+
+<div class="container px-4 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-5">
+            <h2 class="heading cart" style="text-align: center;">Shopping Cart</h4>
+        </div>
+        {% if cart_items %}
+        <div class="table-responsive rounded">
+            <table class="table">
+                <thead class="text-black">
+                    <tr>
+                        <th scope="col">Product Info</th>
+                        <th scope="col"></th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+
+                {% for item in cart_items %}
+                <tr>
+                    <td class="py-3">
+                        {% if item.product.image %}
+                        <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                        {% else %}
+                        <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                        {% endif %}
+                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                    </td>
+                    <td class="py-3">
+                        <p class="my-0">£{{ item.product.price }}</p>
+                    </td>
+                    <td class="py-3 w-25">
+                        <p class="my-0">{{ item.quantity }}</p>
+                        <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button class="decrement-qty btn btn-sm btn-black rounded-50"
+                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                            <span>
+                                                <i class="fas fa-minus fa-sm"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input class="form-control form-control-sm qty_input" type="number" name="quantity"
+                                        value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
+                                        id="id_qty_{{ item.item_id }}">
+                                    <div class="input-group-append">
+                                        <button class="increment-qty btn btn-sm btn-black rounded-50"
+                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                            <span>
+                                                <i class="fas fa-plus fa-sm"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    {% if item.product.has_sizes %}
+                                    <input type="hidden" name="product_size" value="{{ item.size }}">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </form>
+                        <a class="update-link text-info" id="remove_{{ item.item_id }}"><small><i
+                                    class="fa fa-refresh fa-sm"></i>Update</small></i></a>
+                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small><i
+                                    class="fa fa-trash fa-sm"></i>Remove</small></a>
+                    </td>
+                    <td class="py-3">
+                        <p class="my-0">£{{ item.product.price }}</p>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    {% if free_delivery_delta > 0 %}
+                    <p class="mb-1 text-danger">
+                        You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                    </p>
+                    {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+
+            <div class="row justify-content-center">
+                <div class="container">
+                    <div class="col-12">
+                        <div class="card justify-content-center">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-9 mt-2">
+                                    <div class="row d-flex justify-content-between px-4">
+                                        <p class="mb-1 text-left">Subtotal</p>
+                                        <h6 class="mb-1 text-right">£{{ total|floatformat:2 }}</h6>
+                                    </div>
+                                    <div class="row d-flex justify-content-between px-4">
+                                        <p class="mb-1 text-left">Delivery</p>
+                                        <h6 class="mb-1 text-right">£{{ delivery|floatformat:2 }}</h6>
+                                    </div>
+                                    <div class="row d-flex justify-content-between px-4" id="tax">
+                                        <p class="mb-1 text-left">Total (tax included)</p>
+                                        <h6 class="mb-1 text-right">£{{ grand_total|floatformat:2 }}</h6>
+                                    </div>
+                                    <button class="btn-block btn-blue" id="checkout-btn" button
+                                        onclick="window.location.href='{% url 'checkout' %}'">Proceed to
+                                        Checkout</button>
+                                    <button class="btn-block btn-blue"><a href="{% url 'products' %}"
+                                            style="text-decoration: none; color: white;">Continue
+                                            Shopping</a></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% else %}
+    <div class="my-5 w-100 ">
+        <p class="lead mb-5 text-center">Your cart is empty.</p>
+    </div>
+    <div>
+        <button class="btn-block btn-blue"><a href="{% url 'products' %}"
+                style="text-decoration: none; color: white;">Continue Shopping</a></span></button>
+    </div>
+    {% endif %}
+</div>
+</div>
+</div>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
+
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function (e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function (e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('size');
+        var url = `/cart/remove/${itemId}`;
+        var data = {
+            'csrfmiddlewaretoken': csrfToken,
+            'size': size
+        };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    })
+</script>
+{% endblock %}

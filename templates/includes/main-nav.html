@@ -1,0 +1,56 @@
+<nav class="navbar container-fluid">
+    <div class="collapse navbar-collapse" id="main-nav">
+        <ul class="navbar-nav w-auto">
+            <li class="nav-item dropdown">
+                <a class="font-weight-bold nav-link mr-5" href="/products/" id="all-products-link"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    All Products
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                    <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                    <a href="{% url 'products' %}?sort=rating&direction=asc" class="dropdown-item">By Rating</a>
+                    <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="font-weight-bold nav-link mr-5" href="" id="guitars-link" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Guitars
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Acoustic Guitars">Acoustic</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Bass Guitars">Bass</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Classical Guitars">Classical</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Electric Guitars">Electric</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="font-weight-bold nav-link mr-5" href="#" id="keys-link" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Keys
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Piano">Piano</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Digital">Digital</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Keyboards">Keyboards</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="font-weight-bold nav-link mr-5" href="#" id="audio-link" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Studio
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Home Recording">Home Recording</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Microphones">Microphones</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Mixing Desks">Mixing Desks</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=Speakers">Speakers</a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>
